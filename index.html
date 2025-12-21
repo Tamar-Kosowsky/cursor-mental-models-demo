@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursor Mental Models – AI Terms Dictionary</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Cursor Mental Models</h1>
+        <p class="subtitle">AI Terms Dictionary</p>
+    </header>
+
+    <main>
+        <section class="search-section">
+            <input type="text" id="search-input" placeholder="Search mental models...">
+            <button id="search-button">Search</button>
+        </section>
+
+        <section class="cards-container" id="cards-container">
+            <!-- Cards will be dynamically inserted here -->
+        </section>
+    </main>
+
+    <!-- Modal Overlay -->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" id="modal-close">&times;</button>
+            <div id="modal-body">
+                <!-- Modal content will be dynamically inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
