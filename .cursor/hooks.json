@@ -1,0 +1,28 @@
+{
+    "version": 1,
+    "hooks": {
+      "beforeShellExecution": [
+        { "command": ".cursor/hooks/audit.sh" },
+        { "command": ".cursor/hooks/block-git.sh" }
+      ],
+      "beforeMCPExecution": [
+        { "command": ".cursor/hooks/audit.sh" }
+      ],
+      "afterShellExecution": [
+        { "command": ".cursor/hooks/audit.sh" }
+      ],
+      "afterMCPExecution": [
+        { "command": ".cursor/hooks/audit.sh" }
+      ],
+      "afterFileEdit": [
+        { "command": ".cursor/hooks/audit.sh" }
+      ],
+      "beforeSubmitPrompt": [
+        { "command": ".cursor/hooks/audit.sh" }
+      ],
+      "stop": [
+        { "command": ".cursor/hooks/audit.sh" }
+      ]
+    }
+  }
+  

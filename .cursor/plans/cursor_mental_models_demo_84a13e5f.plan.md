@@ -140,12 +140,3 @@ JSON File → loadData() → renderCards() → DOM
 ## Interaction Flow
 
 1. **Page Load**: `loadData()` fetches JSON, calls `renderCards()` with all models
-2. **Search**: User types query, clicks button → `handleSearch()` filters array → `renderCards()` with filtered results
-3. **Card Click**: User clicks card → `openModal()` extracts model ID → `renderModal()` displays details
-4. **Close Modal**: User clicks close button → `closeModal()` hides modal
-
-## Design Implementation Details
-
-- **Colors**: Background `#f5f5f5`, Cards `#ffffff`, Text `#222`/`#333`, Secondary `#666`, Accent `#4f8cff`
-- **Grid**: CSS Grid with auto-fit columns (min 250px, max 350px per card)
-- **Modal**: Fixed overlay with `display: none` by default, centered content box
