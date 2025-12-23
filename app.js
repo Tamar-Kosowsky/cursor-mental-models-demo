@@ -125,52 +125,37 @@ function escapeHtml(text) {
 }
 
 // Event listeners
-if (searchButton) {
-    searchButton.addEventListener('click', handleSearch);
-}
+searchButton.addEventListener('click', handleSearch);
 
-if (searchInput) {
-    searchInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
-            handleSearch();
-        }
-    });
-}
+searchInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        handleSearch();
+    }
+});
 
-if (modalClose) {
-    modalClose.addEventListener('click', closeModal);
-}
+modalClose.addEventListener('click', closeModal);
 
 // Event delegation for modal links - set up once, works for all dynamically created links
 // This prevents duplicate listeners from accumulating when modal is reopened
-if (modalBody) {
-    modalBody.addEventListener('click', (e) => {
-        const clickedLink = e.target.closest('a');
-        if (clickedLink) {
-            // Links work normally - no need to prevent default or stop propagation
-            // The overlay handler below ensures clicks on links don't close the modal
-        }
-    });
-}
+modalBody.addEventListener('click', (e) => {
+    const clickedLink = e.target.closest('a');
+    if (clickedLink) {
+        // Links work normally - no need to prevent default or stop propagation
+        // The overlay handler below ensures clicks on links don't close the modal
+    }
+});
 
 // Close modal when clicking outside (on overlay, not on content)
-if (modalOverlay) {
-    modalOverlay.addEventListener('click', (e) => {
-        const modalContent = e.target.closest('.modal-content');
-        
-        // Only close if clicking directly on the overlay (not on modal-content or its children, including links)
-        // Check if click is inside modal-content - if so, don't close
-        if (e.target === modalOverlay && !modalContent) {
-            closeModal();
-        }
-        // If clicking on modal-content or its children (including links), don't close - allow normal behavior
-    });
-}
+modalOverlay.addEventListener('click', (e) => {
+    const modalContent = e.target.closest('.modal-content');
+    
+    // Only close if clicking directly on the overlay (not on modal-content or its children, including links)
+    // Check if click is inside modal-content - if so, don't close
+    if (e.target === modalOverlay && !modalContent) {
+        closeModal();
+    }
+    // If clicking on modal-content or its children (including links), don't close - allow normal behavior
+});
 
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', loadData);
-
-// Export for simple unit tests
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { escapeHtml };
-}
