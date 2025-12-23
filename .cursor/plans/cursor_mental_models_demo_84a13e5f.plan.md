@@ -134,9 +134,3 @@ JSON File → loadData() → renderCards() → DOM
                 ↓
          Card Click → openModal() → renderModal() → DOM
 ```
-
-
-
-## Interaction Flow
-
-1. **Page Load**: `loadData()` fetches JSON, calls `renderCards()` with all models
