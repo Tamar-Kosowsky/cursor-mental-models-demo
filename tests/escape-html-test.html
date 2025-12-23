@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>escapeHtml smoke test</title>
+    <style>
+        body {
+            margin: 0 auto;
+            max-width: 640px;
+            padding: 24px;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        #status {
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <h1>escapeHtml smoke test</h1>
+    <p>
+        Open this file directly in a browser. It loads <code>app.js</code>, calls
+        <code>escapeHtml()</code> with a script tag, and prints whether the output was escaped.
+    </p>
+    <p id="status">Running test…</p>
+
+    <!-- Minimal DOM nodes so app.js can attach listeners without errors -->
+    <div id="cards-container"></div>
+    <input id="search-input" />
+    <button id="search-button" type="button"></button>
+    <div id="modal-overlay">
+        <div class="modal-content"></div>
+    </div>
+    <div id="modal-body"></div>
+    <button id="modal-close" type="button"></button>
+
+    <script>
+        // Prevent fetch errors when app.js tries to load JSON data in this standalone file.
+        window.fetch = () => Promise.reject(new Error('Disabled in smoke test'));
+    </script>
+    <script src="../app.js"></script>
+    <script>
+        (function verifyEscapeHtml() {
+            const payload = '<script>alert(\"xss\")</script>';
+            const expected = '&lt;script&gt;alert(\"xss\")&lt;/script&gt;';
+            const statusEl = document.getElementById('status');
+
+            if (typeof escapeHtml !== 'function') {
+                statusEl.textContent = 'FAIL: window.escapeHtml is not defined.';
+                statusEl.style.color = 'red';
+                return;
+            }
+
+            const result = escapeHtml(payload);
+
+            if (result === expected) {
+                statusEl.textContent = 'PASS: escapeHtml escaped the script tag.';
+                statusEl.style.color = 'green';
+            } else {
+                statusEl.textContent = `FAIL: expected "${expected}" but got "${result}".`;
+                statusEl.style.color = 'red';
+            }
+        })();
+    </script>
+</body>
+</html>
