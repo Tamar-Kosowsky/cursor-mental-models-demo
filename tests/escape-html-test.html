@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>escapeHtml smoke test</title>
+    <style>
+        body {
+            font-family: system-ui, sans-serif;
+            padding: 24px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        #test-status {
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <h1>escapeHtml smoke test</h1>
+    <p>
+        Open this file in a browser to run the simplest possible check against
+        <code>escapeHtml()</code>. A green message indicates success; red means further
+        debugging is needed.
+    </p>
+    <p id="test-status">Running test…</p>
+
+    <!-- Minimal DOM so app.js can wire up without errors -->
+    <div id="cards-container"></div>
+    <input id="search-input" />
+    <button id="search-button" type="button"></button>
+    <div id="modal-overlay">
+        <div class="modal-content"></div>
+    </div>
+    <div id="modal-body"></div>
+    <button id="modal-close" type="button"></button>
+
+    <script>
+        // Prevent network calls when app.js tries to load JSON data
+        window.fetch = () => Promise.reject(new Error('network disabled in test'));
+    </script>
+    <script src="../app.js"></script>
+    <script>
+        (function runEscapeHtmlTest() {
+            const malicious = '<script>alert("xss")</script>';
+            const expected = '&lt;script&gt;alert("xss")&lt;/script&gt;';
+            const statusEl = document.getElementById('test-status');
+
+            if (typeof escapeHtml !== 'function') {
+                statusEl.textContent = 'FAIL: escapeHtml() is not available on window.';
+                statusEl.style.color = 'red';
+                return;
+            }
+
+            const result = escapeHtml(malicious);
+
+            if (result === expected) {
+                statusEl.textContent = 'PASS: escapeHtml escaped the script tag.';
+                statusEl.style.color = 'green';
+            } else {
+                statusEl.textContent = `FAIL: expected "${expected}" but got "${result}".`;
+                statusEl.style.color = 'red';
+            }
+        })();
+    </script>
+</body>
+</html>
