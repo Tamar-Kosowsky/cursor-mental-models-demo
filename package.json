@@ -1,0 +1,23 @@
+{
+  "name": "workspace",
+  "version": "1.0.0",
+  "description": "A minimal static website demo for a live presentation about Cursor. This site explains how to **think** about Cursor using high-level mental models—conceptual roles that Cursor can play in your development workflow.",
+  "main": "app.js",
+  "scripts": {
+    "test": "vitest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tamar-Kosowsky/cursor-mental-models-demo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tamar-Kosowsky/cursor-mental-models-demo/issues"
+  },
+  "homepage": "https://github.com/Tamar-Kosowsky/cursor-mental-models-demo#readme",
+  "devDependencies": {
+    "vitest": "^4.0.16"
+  }
+}
