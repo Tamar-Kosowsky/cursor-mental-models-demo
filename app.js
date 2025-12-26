@@ -88,8 +88,18 @@ function renderModal(model) {
 
 // Handle search functionality
 function handleSearch() {
-    const query = searchInput.value;
-    filteredMentalModels = filterMentalModels(allMentalModels, query);
+    const query = searchInput.value.trim();
+    
+    if (query === '') {
+        filteredMentalModels = [...allMentalModels];
+    } else {
+        filteredMentalModels = allMentalModels.filter(model => {
+            const titleMatch = model.title.toLowerCase().includes(query.toLowerCase());
+            const descMatch = model.shortDescription.toLowerCase().includes(query.toLowerCase());
+            return titleMatch || descMatch;
+        });
+    }
+    
     renderCards(filteredMentalModels);
 }
 
