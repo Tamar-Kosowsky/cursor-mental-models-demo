@@ -1,0 +1,17 @@
+title = "cursor-mental-models-demo gitleaks config"
+
+# Keep default detection rules, add only small repo-specific allowlists here.
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Repo-specific allowlist (if needed). Keep this small and well-justified."
+
+# Add paths here if demo/test data triggers false positives.
+paths = [
+  '''^data/mental-models\.json$''',
+]
+
+# Add narrowly-scoped false-positive patterns here if needed.
+regexes = []
+
