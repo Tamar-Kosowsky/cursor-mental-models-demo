@@ -1,3 +1,0 @@
-Environment check performed on: Mon Dec 22 17:01:45 IST 2025
-Repository: cursor-mental-models-demo
-This is a minimal static website demo for a live presentation about Cursor mental models.
