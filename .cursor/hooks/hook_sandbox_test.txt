@@ -1,0 +1,3 @@
+Environment check performed on: December 28, 2024
+Repository: cursor-mental-models-demo
+This is a demo project for explaining Cursor's mental models through a static website.
