@@ -1,15 +1,16 @@
 // Global state
 let allModels = [];
 let currentFilteredModels = [];
+const hasDocument = typeof document !== 'undefined';
 
-// DOM elements
-const searchInput = document.getElementById('search-input');
-const cardsContainer = document.getElementById('cards-container');
-const noResults = document.getElementById('no-results');
-const errorMessage = document.getElementById('error-message');
-const modalOverlay = document.getElementById('modal-overlay');
-const modalBody = document.getElementById('modal-body');
-const modalClose = document.getElementById('modal-close');
+// DOM elements (guarded for non-browser environments, e.g., tests)
+const searchInput = hasDocument ? document.getElementById('search-input') : null;
+const cardsContainer = hasDocument ? document.getElementById('cards-container') : null;
+const noResults = hasDocument ? document.getElementById('no-results') : null;
+const errorMessage = hasDocument ? document.getElementById('error-message') : null;
+const modalOverlay = hasDocument ? document.getElementById('modal-overlay') : null;
+const modalBody = hasDocument ? document.getElementById('modal-body') : null;
+const modalClose = hasDocument ? document.getElementById('modal-close') : null;
 
 // Load data from JSON file
 async function loadData() {
@@ -23,9 +24,13 @@ async function loadData() {
         renderCards(allModels);
     } catch (error) {
         console.error('Error loading data:', error);
-        errorMessage.textContent = `Error: Unable to load mental models data. ${error.message}`;
-        errorMessage.style.display = 'block';
-        cardsContainer.style.display = 'none';
+        if (errorMessage) {
+            errorMessage.textContent = `Error: Unable to load mental models data. ${error.message}`;
+            errorMessage.style.display = 'block';
+        }
+        if (cardsContainer) {
+            cardsContainer.style.display = 'none';
+        }
     }
 }
 
@@ -67,6 +72,9 @@ function renderCard(model) {
 
 // Render all cards
 function renderCards(models) {
+    if (!cardsContainer || !noResults) {
+        return;
+    }
     cardsContainer.innerHTML = '';
     noResults.style.display = 'none';
     
@@ -83,25 +91,15 @@ function renderCards(models) {
 
 // Handle search input
 function handleSearch(query) {
-    const searchTerm = query.trim().toLowerCase();
-    
-    if (searchTerm === '') {
-        currentFilteredModels = allModels;
-        renderCards(allModels);
-        return;
-    }
-    
-    currentFilteredModels = allModels.filter(model => {
-        const titleMatch = model.title.toLowerCase().includes(searchTerm);
-        const descMatch = model.shortDescription.toLowerCase().includes(searchTerm);
-        return titleMatch || descMatch;
-    });
-    
+    currentFilteredModels = filterModels(allModels, query);
     renderCards(currentFilteredModels);
 }
 
 // Open modal with model details
 function openModal(model) {
+    if (!hasDocument || !modalOverlay || !modalBody || !modalClose) {
+        return;
+    }
     modalOverlay.style.display = 'flex';
     document.body.style.overflow = 'hidden';
     
@@ -166,32 +164,73 @@ function openModal(model) {
 
 // Close modal
 function closeModal() {
+    if (!hasDocument || !modalOverlay || !modalBody) {
+        return;
+    }
     modalOverlay.style.display = 'none';
     document.body.style.overflow = '';
     modalBody.innerHTML = '';
 }
 
+// Search utility (exported for testing)
+function filterModels(models, query) {
+    const safeModels = Array.isArray(models) ? models : [];
+    const searchTerm = (query || '').trim().toLowerCase();
+
+    if (searchTerm === '') {
+        return safeModels;
+    }
+
+    return safeModels.filter(model => {
+        const searchableFields = [
+            model?.title,
+            model?.shortDescription,
+            ...(Array.isArray(model?.relatedFeatures) ? model.relatedFeatures : []),
+            ...(Array.isArray(model?.detailedExplanation) ? model.detailedExplanation : []),
+            ...(Array.isArray(model?.docs) ? model.docs.map(doc => doc.label) : [])
+        ];
+
+        return searchableFields.some(field => 
+            typeof field === 'string' && field.toLowerCase().includes(searchTerm)
+        );
+    });
+}
+
 // Event listeners
-searchInput.addEventListener('input', (e) => {
-    handleSearch(e.target.value);
-});
+if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+        handleSearch(e.target.value);
+    });
+}
 
-modalClose.addEventListener('click', () => {
-    closeModal();
-});
-
-modalOverlay.addEventListener('click', (e) => {
-    if (e.target === modalOverlay) {
+if (modalClose) {
+    modalClose.addEventListener('click', () => {
         closeModal();
-    }
-});
+    });
+}
 
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modalOverlay.style.display === 'flex') {
-        closeModal();
-    }
-});
+if (modalOverlay) {
+    modalOverlay.addEventListener('click', (e) => {
+        if (e.target === modalOverlay) {
+            closeModal();
+        }
+    });
+}
+
+if (hasDocument) {
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modalOverlay && modalOverlay.style.display === 'flex') {
+            closeModal();
+        }
+    });
+}
 
 // Initialize on page load
-loadData();
+if (hasDocument) {
+    loadData();
+}
+
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { filterModels };
+}
 
