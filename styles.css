@@ -1,0 +1,305 @@
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Base Styles */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: #f5f5f5;
+    color: #222;
+    line-height: 1.6;
+    padding: 0;
+    margin: 0;
+}
+
+/* Header */
+header {
+    background-color: white;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    background-image: linear-gradient(90deg, rgba(34, 34, 34, 1) 1%, rgba(255, 0, 0, 1) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    text-align: right;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    font-weight: normal;
+}
+
+/* Main Content */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem 4rem;
+}
+
+/* Search Container */
+.search-container {
+    margin-bottom: 2rem;
+}
+
+#search-input {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    display: block;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: white;
+    color: #222;
+    transition: border-color 0.2s;
+}
+
+#search-input:focus {
+    outline: none;
+    border-color: #4f8cff;
+}
+
+#search-input::placeholder {
+    color: #999;
+}
+
+/* Error Message */
+.error-message {
+    background-color: #fee;
+    color: #c33;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    border: 1px solid #fcc;
+}
+
+/* No Results Message */
+.no-results {
+    text-align: center;
+    padding: 3rem;
+    color: #666;
+    font-size: 1.1rem;
+}
+
+/* Cards Grid */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* Card */
+.card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-title {
+    font-size: 1.5rem;
+    color: #222;
+    margin-bottom: 0.75rem;
+}
+
+.card-description {
+    color: #666;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.card-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+/* Feature Tags */
+.feature-tag {
+    display: inline-block;
+    background-color: #e3f0ff;
+    color: #2563eb;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* Modal Overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 2rem;
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: 12px;
+    max-width: 600px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #666;
+    cursor: pointer;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.2s, color 0.2s;
+    z-index: 10;
+}
+
+.modal-close:hover {
+    background-color: #f5f5f5;
+    color: #222;
+}
+
+.modal-close:focus {
+    outline: 2px solid #4f8cff;
+    outline-offset: 2px;
+}
+
+#modal-body {
+    padding: 2.5rem 2rem 2rem;
+}
+
+.modal-title {
+    font-size: 2rem;
+    color: #222;
+    margin-bottom: 1.5rem;
+}
+
+.modal-explanation {
+    margin-bottom: 2rem;
+}
+
+.modal-explanation ul {
+    list-style-position: inside;
+    padding-left: 0;
+}
+
+.modal-explanation li {
+    margin-bottom: 0.75rem;
+    color: #333;
+    line-height: 1.7;
+}
+
+.modal-features {
+    margin-bottom: 2rem;
+}
+
+.modal-features h3 {
+    font-size: 1.2rem;
+    color: #222;
+    margin-bottom: 1rem;
+}
+
+.modal-features-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.modal-docs {
+    margin-bottom: 1rem;
+}
+
+.modal-docs h3 {
+    font-size: 1.2rem;
+    color: #222;
+    margin-bottom: 1rem;
+}
+
+.modal-docs-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.modal-docs-list li {
+    margin-bottom: 0.5rem;
+}
+
+.modal-docs-list a {
+    color: #4f8cff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.modal-docs-list a:hover {
+    color: #2563eb;
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+    }
+    
+    .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .modal-content {
+        max-height: 95vh;
+        margin: 1rem;
+    }
+    
+    #modal-body {
+        padding: 2rem 1.5rem 1.5rem;
+    }
+    
+    .modal-title {
+        font-size: 1.5rem;
+    }
+}
+
