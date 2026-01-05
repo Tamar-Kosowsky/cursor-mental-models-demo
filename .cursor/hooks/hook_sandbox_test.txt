@@ -1,3 +1,0 @@
-Environment check performed on: December 28, 2024
-Repository: cursor-mental-models-demo
-A minimal static website that explains how to think about Cursor using high-level mental models.
