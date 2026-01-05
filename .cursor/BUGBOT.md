@@ -35,3 +35,5 @@ This file defines automated bug detection rules for code changes.
 - Apply label: `"security"`
 - **Fail check:** true
 - **Severity:** critical
+- **Status:** failure
+- **Conclusion:** failure
