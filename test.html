@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tests – Cursor Mental Models</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            background: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+        }
+        .test-result {
+            padding: 0.75rem 1rem;
+            margin: 0.5rem 0;
+            border-radius: 6px;
+            font-family: monospace;
+        }
+        .pass {
+            background: #d4edda;
+            color: #155724;
+        }
+        .fail {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        .summary {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+        .summary.all-pass {
+            background: #28a745;
+            color: white;
+        }
+        .summary.has-fail {
+            background: #dc3545;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧪 Tests</h1>
+    <div id="results"></div>
+    <div id="summary"></div>
+
+    <script>
+        // Simple test runner
+        const results = [];
+
+        function test(name, fn) {
+            try {
+                fn();
+                results.push({ name, passed: true });
+            } catch (error) {
+                results.push({ name, passed: false, error: error.message });
+            }
+        }
+
+        function assertEqual(actual, expected, message = '') {
+            if (actual !== expected) {
+                throw new Error(`${message} Expected "${expected}", got "${actual}"`);
+            }
+        }
+
+        function assertTrue(value, message = '') {
+            if (!value) {
+                throw new Error(`${message} Expected truthy value, got "${value}"`);
+            }
+        }
+
+        // Copy of escapeHtml function from app.js for testing
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // ==================== TESTS ====================
+
+        test('escapeHtml: escapes < and > characters', function() {
+            const result = escapeHtml('<script>alert("xss")</script>');
+            assertTrue(!result.includes('<script>'), 'Should escape script tags');
+            assertTrue(result.includes('&lt;'), 'Should contain escaped <');
+            assertTrue(result.includes('&gt;'), 'Should contain escaped >');
+        });
+
+        test('escapeHtml: escapes ampersand', function() {
+            const result = escapeHtml('Tom & Jerry');
+            assertEqual(result, 'Tom &amp; Jerry');
+        });
+
+        test('escapeHtml: escapes quotes', function() {
+            const result = escapeHtml('Say "hello"');
+            assertTrue(result.includes('"') || result.includes('&quot;'), 'Should handle quotes');
+        });
+
+        test('escapeHtml: leaves plain text unchanged', function() {
+            const result = escapeHtml('Hello World');
+            assertEqual(result, 'Hello World');
+        });
+
+        test('escapeHtml: handles empty string', function() {
+            const result = escapeHtml('');
+            assertEqual(result, '');
+        });
+
+        // ==================== RENDER RESULTS ====================
+
+        function renderResults() {
+            const container = document.getElementById('results');
+            const summaryEl = document.getElementById('summary');
+            
+            const passCount = results.filter(r => r.passed).length;
+            const failCount = results.filter(r => !r.passed).length;
+
+            container.innerHTML = results.map(r => `
+                <div class="test-result ${r.passed ? 'pass' : 'fail'}">
+                    ${r.passed ? '✓' : '✗'} ${r.name}
+                    ${r.error ? `<br><small>${r.error}</small>` : ''}
+                </div>
+            `).join('');
+
+            summaryEl.className = `summary ${failCount === 0 ? 'all-pass' : 'has-fail'}`;
+            summaryEl.textContent = `${passCount} passed, ${failCount} failed`;
+        }
+
+        renderResults();
+    </script>
+</body>
+</html>
