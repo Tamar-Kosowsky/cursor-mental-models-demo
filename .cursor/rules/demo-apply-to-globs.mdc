@@ -1,0 +1,25 @@
+---
+description: DEMO (Apply to Specific Files): Enforce the mental models JSON schema and keep it valid and readable.
+alwaysApply: false
+globs:
+  - data/mental-models.json
+  - data/*.json
+  - data/**/*.json
+---
+# Demo Rule — Apply to Specific Files (JSON Schema)
+
+This rule applies when editing the mental models JSON data (especially `data/mental-models.json`).
+
+## Required schema (per object)
+- id: string (unique, stable)
+- title: string
+- shortDescription: 1–2 sentences
+- detailedExplanation: array of strings (bullet points)
+- relatedFeatures: array of strings
+- docs: array of objects: { label, url }
+
+## Quality checks
+- Keep JSON strictly valid (double quotes, no trailing commas).
+- Keep formatting readable (consistent indentation).
+- Use consistent casing and naming style across objects.
+- Prefer 5–8 mental models with distinct, non-overlapping ideas.

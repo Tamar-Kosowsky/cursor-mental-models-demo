@@ -14,3 +14,8 @@ def main():
     print(add(1, 2))
 
 def division(a, b):
+
+def modulo(a, b):
+    return a % b
+
+ded 

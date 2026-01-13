@@ -1,0 +1,20 @@
+---
+description: DEMO (Apply Intelligently): When asked to plan/demo the build, respond with PLAN → TODO → QUESTIONS and do not write code until confirmed.
+alwaysApply: false
+---
+# Demo Rule — Apply Intelligently (Planning Mode)
+
+When the user prompt is about *planning* the demo project (structure, data flow, interactions), follow this response pattern:
+
+## Response template
+- PLAN
+  - File responsibilities
+  - Data flow (JSON → JS → UI)
+  - Interaction flow
+- TODO LIST
+  - 10–15 concrete, ordered steps
+- QUESTIONS
+  - Ask only what is truly ambiguous
+
+## Guardrail
+- Do not write or generate project code until the user explicitly confirms.

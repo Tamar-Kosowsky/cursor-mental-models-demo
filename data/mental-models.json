@@ -1,0 +1,151 @@
+[
+  {
+    "id": "cursor-as-planner",
+    "title": "Cursor as a Planner",
+    "shortDescription": "Cursor helps break down complex tasks into manageable steps, creating structured plans before implementation.",
+    "detailedExplanation": [
+      "Cursor analyzes your request and decomposes it into logical, sequential steps",
+      "It identifies dependencies between tasks and suggests an optimal order of execution",
+      "The planning phase helps catch potential issues before coding begins",
+      "Plans can be reviewed and refined through conversation before implementation",
+      "This mental model emphasizes thinking before doing, reducing wasted effort"
+    ],
+    "relatedFeatures": [
+      "Composer",
+      "Chat",
+      "Multi-file editing",
+      "Code generation"
+    ],
+    "docs": [
+      {
+        "label": "Cursor Documentation",
+        "url": "https://docs.cursor.com"
+      }
+    ]
+  },
+  {
+    "id": "cursor-as-pair-programmer",
+    "title": "Cursor as a Pair Programmer",
+    "shortDescription": "Cursor acts as a collaborative coding partner, discussing approaches, reviewing code, and suggesting improvements in real-time.",
+    "detailedExplanation": [
+      "Cursor engages in back-and-forth dialogue about code design and implementation choices",
+      "It provides context-aware suggestions based on your codebase and coding style",
+      "Like a human pair programmer, it asks clarifying questions when requirements are ambiguous",
+      "It can explain its reasoning and adapt to your feedback during the conversation",
+      "This collaborative approach leads to better solutions than one-way code generation"
+    ],
+    "relatedFeatures": [
+      "Chat",
+      "Codebase context",
+      "Inline suggestions",
+      "Code explanations"
+    ],
+    "docs": [
+      {
+        "label": "Chat Features",
+        "url": "https://docs.cursor.com/chat"
+      }
+    ]
+  },
+  {
+    "id": "cursor-as-code-reviewer",
+    "title": "Cursor as a Code Reviewer",
+    "shortDescription": "Cursor examines code for bugs, style issues, security vulnerabilities, and opportunities for improvement.",
+    "detailedExplanation": [
+      "Cursor reviews code with a focus on correctness, maintainability, and best practices",
+      "It identifies potential bugs, edge cases, and security concerns before they reach production",
+      "The review process considers code style, naming conventions, and architectural patterns",
+      "It provides constructive feedback with explanations, not just error messages",
+      "This mental model helps maintain code quality and catch issues early in development"
+    ],
+    "relatedFeatures": [
+      "Code analysis",
+      "Error detection",
+      "Style suggestions",
+      "Security scanning"
+    ],
+    "docs": [
+      {
+        "label": "Code Review",
+        "url": "https://docs.cursor.com/review"
+      }
+    ]
+  },
+  {
+    "id": "cursor-as-ci-fixer",
+    "title": "Cursor as a CI Fixer",
+    "shortDescription": "Cursor automatically diagnoses and fixes CI/CD pipeline failures, test errors, and build issues.",
+    "detailedExplanation": [
+      "When CI fails, Cursor analyzes error messages, logs, and test outputs to identify root causes",
+      "It suggests specific fixes for broken tests, compilation errors, and configuration issues",
+      "Cursor understands the relationship between code changes and CI failures",
+      "It can fix multiple related issues in a single pass, not just one error at a time",
+      "This mental model treats CI as a feedback loop that Cursor helps resolve efficiently"
+    ],
+    "relatedFeatures": [
+      "Error analysis",
+      "Test fixing",
+      "Build debugging",
+      "Multi-file changes"
+    ],
+    "docs": [
+      {
+        "label": "CI Integration",
+        "url": "https://docs.cursor.com/ci"
+      }
+    ]
+  },
+  {
+    "id": "cursor-as-knowledge-retriever",
+    "title": "Cursor as a Knowledge Retriever",
+    "shortDescription": "Cursor searches through your codebase, documentation, and context to find relevant information and answer questions.",
+    "detailedExplanation": [
+      "Cursor indexes and understands your entire codebase, making information retrieval fast and accurate",
+      "It can answer questions about how code works, where features are implemented, and what patterns are used",
+      "The retrieval process considers context, not just keyword matching",
+      "It synthesizes information from multiple files and sources to provide comprehensive answers",
+      "This mental model positions Cursor as a searchable knowledge base of your project"
+    ],
+    "relatedFeatures": [
+      "Codebase indexing",
+      "Semantic search",
+      "Context awareness",
+      "Documentation lookup"
+    ],
+    "docs": [
+      {
+        "label": "Codebase Context",
+        "url": "https://docs.cursor.com/context"
+      }
+    ]
+  },
+  {
+    "id": "cursor-as-teacher",
+    "title": "Cursor as a Teacher",
+    "shortDescription": "Cursor explains code concepts, teaches best practices, and helps developers understand how things work and why they matter.",
+    "detailedExplanation": [
+      "Cursor breaks down complex code into understandable concepts, explaining not just what code does but why it's written that way",
+      "It teaches programming patterns, design principles, and best practices through contextual explanations",
+      "When you ask 'how does this work?' or 'why is this better?', Cursor provides educational answers that deepen understanding",
+      "It adapts explanations to your skill level, providing beginner-friendly introductions or advanced deep-dives as needed",
+      "This mental model positions Cursor as a patient tutor that helps you grow as a developer through continuous learning"
+    ],
+    "relatedFeatures": [
+      "Chat",
+      "Code explanations",
+      "Codebase context",
+      "Inline suggestions",
+      "Documentation lookup"
+    ],
+    "docs": [
+      {
+        "label": "Chat Features",
+        "url": "https://docs.cursor.com/chat"
+      },
+      {
+        "label": "Codebase Context",
+        "url": "https://docs.cursor.com/context"
+      }
+    ]
+  }
+]

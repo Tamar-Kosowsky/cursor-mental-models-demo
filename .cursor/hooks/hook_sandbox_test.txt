@@ -1,0 +1,3 @@
+Environment check performed on: January 13, 2025
+Repository: cursor-mental-models-demo
+A demo repository showcasing mental models for understanding Cursor AI features through a static HTML/CSS/JS website.
