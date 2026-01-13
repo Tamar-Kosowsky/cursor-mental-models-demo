@@ -2,10 +2,10 @@
  * Test file for Bugbot Rules validation
  */
 
-// 1. TODO/FIXME detection (Should trigger non-blocking bugs)
-// TODO: implement proper logging here
+// 1. Task-marker detection (Should trigger non-blocking bugs)
+// TODO(#9): implement proper logging here
 const testFunction = () => {
-    /* FIXME: missing error handling in this block */
+    /* FIXME(#9): missing error handling in this block */
     console.log("Testing Bugbot detection...");
 };
 
