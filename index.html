@@ -13,20 +13,24 @@
     </header>
 
     <main>
-        <section class="search-section">
-            <input type="text" id="search-input" placeholder="Search mental models...">
-            <button id="search-button">Search</button>
-        </section>
+        <div class="search-container">
+            <input 
+                type="text" 
+                id="search-input" 
+                placeholder="Search mental models..."
+                aria-label="Search mental models"
+            >
+        </div>
 
-        <section class="cards-container" id="cards-container">
+        <div id="cards-container" class="cards-grid">
             <!-- Cards will be dynamically inserted here -->
-        </section>
+        </div>
     </main>
 
-    <!-- Modal Overlay -->
-    <div class="modal-overlay" id="modal-overlay">
+    <!-- Modal overlay -->
+    <div id="modal-overlay" class="modal-overlay hidden">
         <div class="modal-content">
-            <button class="modal-close" id="modal-close">&times;</button>
+            <button class="modal-close" aria-label="Close modal">&times;</button>
             <div id="modal-body">
                 <!-- Modal content will be dynamically inserted here -->
             </div>

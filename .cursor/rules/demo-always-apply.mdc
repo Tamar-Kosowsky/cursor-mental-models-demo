@@ -1,0 +1,17 @@
+---
+description: DEMO (Always Apply): Keep this project tiny, static, and presentation-friendly.
+alwaysApply: true
+---
+# Demo Rule — Always Apply (Static + Simple)
+
+This repo is a live demo, not a production app.
+
+## Constraints to enforce
+- Use plain HTML/CSS/vanilla JS only (no frameworks, no build step).
+- Everything must work by opening index.html locally.
+- Prefer clarity over cleverness: explicit names, short functions, readable code.
+- Avoid extra engineering: no backend, no bundlers, no dependencies, no external services.
+
+## Communication style
+- Assume the audience is not frontend-focused.
+- Explain decisions briefly and avoid jargon when possible.

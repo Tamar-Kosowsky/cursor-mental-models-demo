@@ -1,0 +1,19 @@
+---
+alwaysApply: false
+---
+# Demo Rule — Manual (@mention to apply)
+
+Apply this rule only when the user explicitly references it (for example: `@demo-manual-rule`).
+
+## What to do when applied
+- Write in short, audience-friendly sentences.
+- Avoid Cursor-internal jargon; define terms if needed.
+- Keep each mental model:
+  - 1–2 sentence shortDescription
+  - 4–6 bullet points in detailedExplanation
+  - 3–6 relatedFeatures
+  - 1–3 docs links
+
+## What NOT to do
+- Do not invent complicated workflows.
+- Do not add extra files, frameworks, or backend concepts.

@@ -1,179 +1,150 @@
 [
   {
-    "id": "planner",
+    "id": "cursor-as-planner",
     "title": "Cursor as a Planner",
-    "shortDescription": "Use Cursor to break down complex tasks into actionable steps and create implementation roadmaps.",
+    "shortDescription": "Cursor helps break down complex tasks into manageable steps, creating structured plans before implementation.",
     "detailedExplanation": [
-      "Cursor can analyze a high-level goal and decompose it into smaller, manageable tasks",
-      "It helps identify dependencies between different parts of a project",
-      "Cursor can suggest the order of implementation based on best practices",
-      "It provides a structured approach to tackling large features or refactoring work",
-      "The planning output serves as a living document that can be updated as work progresses"
+      "Cursor analyzes your request and decomposes it into logical, sequential steps",
+      "It identifies dependencies between tasks and suggests an optimal order of execution",
+      "The planning phase helps catch potential issues before coding begins",
+      "Plans can be reviewed and refined through conversation before implementation",
+      "This mental model emphasizes thinking before doing, reducing wasted effort"
     ],
     "relatedFeatures": [
+      "Composer",
+      "Chat",
       "Multi-file editing",
-      "Codebase understanding",
-      "Task breakdown",
-      "Project structure analysis"
+      "Code generation"
     ],
     "docs": [
       {
-        "label": "Cursor Docs - Chat",
-        "url": "https://docs.cursor.com/chat/overview"
+        "label": "Cursor Documentation",
+        "url": "https://docs.cursor.com"
       }
     ]
   },
   {
-    "id": "pair-programmer",
+    "id": "cursor-as-pair-programmer",
     "title": "Cursor as a Pair Programmer",
-    "shortDescription": "Work alongside Cursor in real-time, getting suggestions and code completions as you type.",
+    "shortDescription": "Cursor acts as a collaborative coding partner, discussing approaches, reviewing code, and suggesting improvements in real-time.",
     "detailedExplanation": [
-      "Cursor provides intelligent code completions that understand your codebase context",
-      "It suggests implementations based on existing patterns in your project",
-      "You can ask questions about code while writing, getting immediate answers",
-      "Cursor helps maintain consistency with your project's coding style",
-      "It acts as a collaborative partner that never gets tired and has instant access to documentation"
+      "Cursor engages in back-and-forth dialogue about code design and implementation choices",
+      "It provides context-aware suggestions based on your codebase and coding style",
+      "Like a human pair programmer, it asks clarifying questions when requirements are ambiguous",
+      "It can explain its reasoning and adapt to your feedback during the conversation",
+      "This collaborative approach leads to better solutions than one-way code generation"
     ],
     "relatedFeatures": [
-      "Autocomplete",
-      "Inline chat",
-      "Context awareness",
-      "Code suggestions"
+      "Chat",
+      "Codebase context",
+      "Inline suggestions",
+      "Code explanations"
     ],
     "docs": [
       {
-        "label": "Cursor Docs - Tab",
-        "url": "https://docs.cursor.com/tab/overview"
+        "label": "Chat Features",
+        "url": "https://docs.cursor.com/chat"
       }
     ]
   },
   {
-    "id": "code-reviewer",
+    "id": "cursor-as-code-reviewer",
     "title": "Cursor as a Code Reviewer",
-    "shortDescription": "Have Cursor review your code for bugs, best practices, and potential improvements before committing.",
+    "shortDescription": "Cursor examines code for bugs, style issues, security vulnerabilities, and opportunities for improvement.",
     "detailedExplanation": [
-      "Cursor can analyze code for common bugs and edge cases",
-      "It checks for adherence to best practices and design patterns",
-      "Cursor identifies potential performance issues and suggests optimizations",
-      "It reviews code for security vulnerabilities and anti-patterns",
-      "The review process helps catch issues early, before they reach production"
+      "Cursor reviews code with a focus on correctness, maintainability, and best practices",
+      "It identifies potential bugs, edge cases, and security concerns before they reach production",
+      "The review process considers code style, naming conventions, and architectural patterns",
+      "It provides constructive feedback with explanations, not just error messages",
+      "This mental model helps maintain code quality and catch issues early in development"
     ],
     "relatedFeatures": [
       "Code analysis",
-      "Bug detection",
-      "Best practices checking",
+      "Error detection",
+      "Style suggestions",
       "Security scanning"
     ],
     "docs": [
       {
-        "label": "Cursor Docs - Chat",
-        "url": "https://docs.cursor.com/chat/overview"
+        "label": "Code Review",
+        "url": "https://docs.cursor.com/review"
       }
     ]
   },
   {
-    "id": "ci-fixer",
+    "id": "cursor-as-ci-fixer",
     "title": "Cursor as a CI Fixer",
-    "shortDescription": "When CI tests fail, use Cursor to understand the errors and generate fixes automatically.",
+    "shortDescription": "Cursor automatically diagnoses and fixes CI/CD pipeline failures, test errors, and build issues.",
     "detailedExplanation": [
-      "Cursor can read and interpret CI error messages and stack traces",
-      "It identifies the root cause of test failures by analyzing code and test output",
-      "Cursor suggests specific fixes for failing tests and build errors",
-      "It helps maintain code quality by ensuring all tests pass before merging",
-      "This mental model saves time by automating the debugging process for CI failures"
+      "When CI fails, Cursor analyzes error messages, logs, and test outputs to identify root causes",
+      "It suggests specific fixes for broken tests, compilation errors, and configuration issues",
+      "Cursor understands the relationship between code changes and CI failures",
+      "It can fix multiple related issues in a single pass, not just one error at a time",
+      "This mental model treats CI as a feedback loop that Cursor helps resolve efficiently"
     ],
     "relatedFeatures": [
       "Error analysis",
-      "Test debugging",
-      "Build error resolution",
-      "Automated fixes"
+      "Test fixing",
+      "Build debugging",
+      "Multi-file changes"
     ],
     "docs": [
       {
-        "label": "Cursor Docs - Context",
-        "url": "https://docs.cursor.com/context/overview"
+        "label": "CI Integration",
+        "url": "https://docs.cursor.com/ci"
       }
     ]
   },
   {
-    "id": "knowledge-retriever",
+    "id": "cursor-as-knowledge-retriever",
     "title": "Cursor as a Knowledge Retriever",
-    "shortDescription": "Ask Cursor questions about your codebase to quickly understand how things work and find relevant code.",
+    "shortDescription": "Cursor searches through your codebase, documentation, and context to find relevant information and answer questions.",
     "detailedExplanation": [
-      "Cursor can search across your entire codebase to find relevant code and documentation",
-      "It explains how different parts of your system interact and depend on each other",
-      "Cursor helps you understand unfamiliar code by providing context and explanations",
-      "It can trace data flow and identify where specific functionality is implemented",
-      "This mental model treats Cursor as a searchable knowledge base of your project"
+      "Cursor indexes and understands your entire codebase, making information retrieval fast and accurate",
+      "It can answer questions about how code works, where features are implemented, and what patterns are used",
+      "The retrieval process considers context, not just keyword matching",
+      "It synthesizes information from multiple files and sources to provide comprehensive answers",
+      "This mental model positions Cursor as a searchable knowledge base of your project"
     ],
     "relatedFeatures": [
-      "Codebase search",
-      "Code explanation",
-      "Dependency analysis",
-      "Documentation generation"
+      "Codebase indexing",
+      "Semantic search",
+      "Context awareness",
+      "Documentation lookup"
     ],
     "docs": [
       {
-        "label": "Cursor Docs - Codebase Indexing",
-        "url": "https://docs.cursor.com/context/codebase-indexing"
+        "label": "Codebase Context",
+        "url": "https://docs.cursor.com/context"
       }
     ]
   },
   {
-    "id": "refactorer",
-    "title": "Cursor as a Refactorer",
-    "shortDescription": "Use Cursor to improve code structure, readability, and maintainability while preserving functionality.",
+    "id": "cursor-as-teacher",
+    "title": "Cursor as a Teacher",
+    "shortDescription": "Cursor explains code concepts, teaches best practices, and helps developers understand how things work and why they matter.",
     "detailedExplanation": [
-      "Cursor can identify code smells and suggest refactoring opportunities across your codebase",
-      "It helps extract methods, rename variables, and restructure code for better organization",
-      "Cursor maintains code behavior while improving its design and reducing complexity",
-      "It can refactor across multiple files simultaneously, ensuring consistency throughout the project",
-      "This mental model treats Cursor as a partner in improving code quality without breaking existing functionality"
+      "Cursor breaks down complex code into understandable concepts, explaining not just what code does but why it's written that way",
+      "It teaches programming patterns, design principles, and best practices through contextual explanations",
+      "When you ask 'how does this work?' or 'why is this better?', Cursor provides educational answers that deepen understanding",
+      "It adapts explanations to your skill level, providing beginner-friendly introductions or advanced deep-dives as needed",
+      "This mental model positions Cursor as a patient tutor that helps you grow as a developer through continuous learning"
     ],
     "relatedFeatures": [
-      "Multi-file editing",
-      "Cursor Tab",
-      "Code suggestions",
-      "Context awareness",
-      "Codebase understanding"
+      "Chat",
+      "Code explanations",
+      "Codebase context",
+      "Inline suggestions",
+      "Documentation lookup"
     ],
     "docs": [
       {
-        "label": "Cursor Docs - Chat",
-        "url": "https://docs.cursor.com/chat/overview"
+        "label": "Chat Features",
+        "url": "https://docs.cursor.com/chat"
       },
       {
-        "label": "Cursor Docs - Tab",
-        "url": "https://docs.cursor.com/tab/overview"
-      }
-    ]
-  },
-  {
-    "id": "debugger",
-    "title": "Cursor as a Debugger",
-    "shortDescription": "Use Cursor to analyze runtime errors, understand stack traces, and identify the root cause of bugs in your code.",
-    "detailedExplanation": [
-      "Cursor can interpret error messages and stack traces to pinpoint where bugs occur in your codebase",
-      "It helps trace the execution flow and understand how data moves through your application",
-      "Cursor analyzes runtime behavior by examining code paths and variable states",
-      "It suggests fixes for bugs by understanding the context of errors and your codebase structure",
-      "This mental model treats Cursor as a debugging partner that helps you understand why code fails and how to fix it"
-    ],
-    "relatedFeatures": [
-      "Error analysis",
-      "AI Fix",
-      "Context awareness",
-      "Codebase understanding",
-      "Chat"
-    ],
-    "docs": [
-      {
-        "label": "Cursor Docs - Chat",
-        "url": "https://docs.cursor.com/chat/overview"
-      },
-      {
-        "label": "Cursor Docs - Context",
-        "url": "https://docs.cursor.com/context/overview"
+        "label": "Codebase Context",
+        "url": "https://docs.cursor.com/context"
       }
     ]
   }
