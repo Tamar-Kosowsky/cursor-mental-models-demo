@@ -1,0 +1,14 @@
+title = "cursor-mental-models-demo gitleaks config"
+
+# This is a minimal allowlist-focused config. If you add gitleaks to CI,
+# keep this file small and only allowlist known false positives.
+
+[allowlist]
+description = "Known-safe example strings and docs"
+regexes = [
+  '''(?i)example[_-]?(api[_-]?key|token|secret|password)''',
+  '''(?i)dummy[_-]?(api[_-]?key|token|secret|password)''',
+]
+paths = [
+  '''README\.md''',
+]
