@@ -33,7 +33,7 @@ header {
 
 header h1 {
     font-size: 2rem;
-    color: red;
+    color: var(--text-primary);
     margin-bottom: 0.5rem;
 }
 
